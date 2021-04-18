@@ -1,1 +1,10 @@
+*.class
+*.jar
+!gradle-wrapper.jar
+
+.project
+.classpath
+.settings
+
 .gradle
+build
