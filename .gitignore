@@ -1,6 +1,7 @@
 *.class
 *.jar
 !gradle-wrapper.jar
+bin
 
 .project
 .classpath
@@ -8,3 +9,5 @@
 
 .gradle
 build
+
+.vscode
