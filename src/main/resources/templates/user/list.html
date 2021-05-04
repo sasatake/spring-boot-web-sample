@@ -3,11 +3,32 @@
 <head> 
     <title>User List</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+    <link rel="stylesheet" th:href="@{/webjars/uikit/3.6.19/css/uikit.min.css}">
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit.min.js}"></script>
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
+  </head>
 <body>
-    <h1>User List</h1>
-    <th:block th:each="user : ${userList}">
-      <li th:text="${user.name}"></li>
-    </th:block>
+  <div id="header" class="uk-flex uk-flex-center">
+    <h1 class="uk-heading-small">User List</h1>
+  </div>
+  <div id="body" class="uk-flex uk-flex-center uk-padding-large">
+    <table class="uk-table uk-table-striped">
+      <caption>User List</caption>
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+          </tr>
+      </thead>
+      <tbody>
+        <th:block th:each="user : ${userList}">
+          <tr>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+          </tr>
+        </th:block>  
+      </tbody>
+  </table>
+  </div>
 </body>
 </html>
