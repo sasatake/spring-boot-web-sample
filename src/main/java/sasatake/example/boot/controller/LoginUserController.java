@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import sasatake.example.boot.service.UserService;
+import sasatake.example.boot.service.LoginUserService;
 
 @Controller
-public class UserController {
+public class LoginUserController {
 
   @Autowired
-  private UserService userService;
+  private LoginUserService userService;
 
   @GetMapping("/users")
   public String list(Model model) {
