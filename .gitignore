@@ -11,3 +11,6 @@ bin
 build
 
 .vscode
+
+docker/postgres/data/*
+docker/pgadmin/data/*
