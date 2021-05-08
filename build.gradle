@@ -31,3 +31,7 @@ test {
 jacocoTestReport {
     dependsOn test
 }
+
+task openJacocoReport(type: Exec) {
+	commandLine 'open', "$projectDir/build/reports/jacoco/test/html/index.html"
+}
