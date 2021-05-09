@@ -18,4 +18,8 @@ public class LoginUserService {
     return (List<LoginUser>) userRepository.findAll();
   }
 
+  public void registerUser(LoginUser user) {
+    userRepository.save(user);
+  }
+
 }
