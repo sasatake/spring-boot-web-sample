@@ -8,10 +8,18 @@
     <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
   </head>
 <body>
-  <div id="header" class="uk-flex uk-flex-center">
-    <h1 class="uk-heading-small">User List</h1>
+  <div id="header" class="uk-flex uk-flex-center uk-flex-middle uk-margin-top">
+    <div class="uk-card">
+      <div class="uk-heading-small">User List</div>
+    </div>
+    <div class="uk-card">
+      <a class="uk-button uk-button-primary uk-margin-left" th:href="@{/user/register/input}">
+        <span uk-icon="plus-circle"></span>
+        Add User
+      </a> 
+    </div>
   </div>
-  <div id="body" class="uk-flex uk-flex-center uk-padding-large">
+  <div id="body" class="uk-flex uk-flex-center uk-padding">
     <table class="uk-table uk-table-striped">
       <caption>User List</caption>
       <thead>
@@ -29,12 +37,6 @@
         </th:block>  
       </tbody>
     </table>
-  </div>
-  <div id="header" class="uk-flex uk-flex-center">
-    <a class="uk-button uk-button-primary" th:href="@{/user/register/input}">
-      <span uk-icon="plus-circle"></span>
-      Add User
-    </a>
   </div>
 </body>
 </html>
