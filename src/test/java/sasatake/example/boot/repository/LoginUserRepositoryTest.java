@@ -2,11 +2,17 @@ package sasatake.example.boot.repository;
 
 import java.util.List;
 
+import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.*;
@@ -15,6 +21,9 @@ import sasatake.example.boot.entity.LoginUser;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
+@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
+    TransactionDbUnitTestExecutionListener.class })
+@Transactional
 public class LoginUserRepositoryTest {
 
   @Autowired
@@ -24,6 +33,7 @@ public class LoginUserRepositoryTest {
   private LoginUserRepository repository;
 
   @Test
+  @DatabaseSetup("/data/LoginUserNoData.xml")
   public void testFindAll() throws Exception {
 
     LoginUser user001 = new LoginUser();
