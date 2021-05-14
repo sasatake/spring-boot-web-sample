@@ -35,7 +35,7 @@ public class LoginUserController {
     return "user/confirm";
   }
 
-  @PostMapping("/user/register/complete")
+  @PostMapping("/user/register")
   public String register(@ModelAttribute LoginUserForm form, Model model) {
     LoginUser user = new LoginUser();
     user.setName(form.getName());
