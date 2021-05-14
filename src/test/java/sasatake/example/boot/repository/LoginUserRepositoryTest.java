@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -50,4 +52,17 @@ public class LoginUserRepositoryTest {
     List<LoginUser> userList = (List<LoginUser>) this.repository.findAll();
     assertThat(userList.size()).isEqualTo(3);
   }
+
+  @Test
+  @DatabaseSetup("/data/LoginUserNoData.xml")
+  @ExpectedDatabase(value = "/data/LoginUser001.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
+  public void save() throws Exception {
+
+    LoginUser user001 = new LoginUser();
+    user001.setName("001");
+    LoginUser result = this.repository.save(user001);
+    this.entityManager.flush();
+    assertThat(result.getName()).isEqualTo(user001.getName());
+  }
+
 }
