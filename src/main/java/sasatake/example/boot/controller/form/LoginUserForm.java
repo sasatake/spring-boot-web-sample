@@ -1,15 +1,12 @@
 package sasatake.example.boot.controller.form;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class LoginUserForm {
 
   private String name;
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
 
 }
