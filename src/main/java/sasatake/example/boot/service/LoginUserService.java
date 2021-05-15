@@ -1,6 +1,7 @@
 package sasatake.example.boot.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,11 @@ public class LoginUserService {
 
   public List<LoginUser> getUserList() {
     return (List<LoginUser>) userRepository.findAll();
+  }
+
+  public Optional<LoginUser> getUser(String id) {
+    var intId = Integer.parseInt(id);
+    return userRepository.findById(intId);
   }
 
   public void registerUser(LoginUser user) {

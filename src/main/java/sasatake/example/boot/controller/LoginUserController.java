@@ -1,11 +1,14 @@
 package sasatake.example.boot.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import sasatake.example.boot.service.LoginUserService;
 import sasatake.example.boot.controller.form.LoginUserForm;
@@ -21,6 +24,13 @@ public class LoginUserController {
   public String list(Model model) {
     model.addAttribute("userList", userService.getUserList());
     return "user/list";
+  }
+
+  @GetMapping("/user/{id}")
+  public String detail(@PathVariable("id") String id, Model model) {
+    Optional<LoginUser> optionalUser = userService.getUser(id);
+    optionalUser.ifPresent(user -> model.addAttribute("user", user));
+    return "user/detail";
   }
 
   @GetMapping("/user/register/input")

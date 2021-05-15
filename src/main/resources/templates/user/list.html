@@ -31,7 +31,9 @@
       <tbody>
         <th:block th:each="user : ${userList}">
           <tr>
-            <td th:text="${user.id}"></td>
+            <td>
+              <a th:text="${user.id}" th:href="@{/user/{id}(id=${user.id})}"></a>
+            </td>
             <td th:text="${user.name}"></td>
           </tr>
         </th:block>  
