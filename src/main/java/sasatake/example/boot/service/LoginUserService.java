@@ -28,4 +28,10 @@ public class LoginUserService {
     userRepository.save(user);
   }
 
+  public void updateUser(LoginUser user) {
+    if (userRepository.existsById(user.getId())) {
+      userRepository.save(user);
+    }
+  }
+
 }

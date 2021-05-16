@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>User Registration - Confirm</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/uikit/3.6.19/css/uikit.min.css}">
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit.min.js}"></script>
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
+</head>
+<body>
+  <form id="form" class="uk-flex uk-flex-center uk-padding-large"
+    th:action="@{/user/update}" th:object="${form}" method="post">
+    <fieldset class="uk-fieldset">
+      <legend class="uk-legend">User Update - Confirm</legend>
+
+      <div class="uk-margin">
+        <input id="id" class="uk-input" type="hidden" th:field="*{id}">
+        <label class="uk-form-label" for="form-stacked-text">Name</label>
+        <input id="name" class="uk-input" type="hidden" name="name" th:field="*{name}">
+        <div th:text="${form.name}"></div>
+      </div>
+
+      <div class="uk-margin">
+        <input type="submit" value="Update" class="uk-button uk-button-primary"/>
+      </div>
+      
+    </fieldset>
+  </form>
+</body>
+</html>

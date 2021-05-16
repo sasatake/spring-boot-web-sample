@@ -36,13 +36,13 @@ public class LoginUserController {
   @GetMapping("/user/register/input")
   public String registerInput(Model model) {
     model.addAttribute("form", new LoginUserForm());
-    return "user/input";
+    return "user/register/input";
   }
 
   @PostMapping("/user/register/confirm")
   public String registerConfirm(@ModelAttribute LoginUserForm form, Model model) {
     model.addAttribute("form", form);
-    return "user/confirm";
+    return "user/register/confirm";
   }
 
   @PostMapping("/user/register")
@@ -55,7 +55,34 @@ public class LoginUserController {
 
   @GetMapping("/user/register/complete")
   public String registerComplete() {
-    return "user/complete";
+    return "user/register/complete";
+  }
+
+  @GetMapping("/user/{id}/update/input")
+  public String updateInput(@PathVariable("id") String id, Model model) {
+    Optional<LoginUser> optionalUser = userService.getUser(id);
+    optionalUser.ifPresent(user -> model.addAttribute("form", new LoginUserForm(user)));
+    return "user/update/input";
+  }
+
+  @PostMapping("/user/update/confirm")
+  public String updateConfirm(@ModelAttribute LoginUserForm form, Model model) {
+    model.addAttribute("form", form);
+    return "user/update/confirm";
+  }
+
+  @PostMapping("/user/update")
+  public String update(@ModelAttribute LoginUserForm form, Model model) {
+    LoginUser user = new LoginUser();
+    user.setId(Integer.parseInt(form.getId()));
+    user.setName(form.getName());
+    userService.updateUser(user);
+    return "redirect:/user/update/complete";
+  }
+
+  @GetMapping("/user/update/complete")
+  public String updateComplete() {
+    return "user/update/complete";
   }
 
 }
