@@ -47,10 +47,10 @@
                 <td th:text="${user.name}"></td>
                 <td>
                   <a
-                    class="uk-link-muted"
+                    class="uk-link-muted uk-margin-small-right"
                     th:href="@{/user/{id}/update/input(id=${user.id})}"
+                    uk-icon="pencil"
                   >
-                    <span uk-icon="pencil" class="uk-margin-small-right"></span>
                   </a>
                   <span uk-icon="trash" class="uk-margin-small-right"></span>
                 </td>
