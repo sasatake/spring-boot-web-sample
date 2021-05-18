@@ -8,34 +8,36 @@
     <title>User Registration - Confirm</title>
   </head>
   <body>
-    <form
-      id="form"
-      class="uk-flex uk-flex-center uk-padding-large"
-      th:action="@{/user/register}"
-      th:object="${form}"
-      method="post"
-    >
-      <fieldset class="uk-fieldset">
-        <legend class="uk-legend">User Registration - Confirm</legend>
-        <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Name</label>
-          <input
-            id="name"
-            class="uk-input"
-            type="hidden"
-            name="name"
-            th:field="*{name}"
-          />
-          <div th:text="${form.name}"></div>
-        </div>
-        <div class="uk-margin">
-          <input
-            type="submit"
-            value="Register"
-            class="uk-button uk-button-primary"
-          />
-        </div>
-      </fieldset>
-    </form>
+    <div layout:fragment="content">
+      <form
+        id="form"
+        class="uk-flex uk-flex-center uk-padding-large"
+        th:action="@{/user/register}"
+        th:object="${form}"
+        method="post"
+      >
+        <fieldset class="uk-fieldset">
+          <legend class="uk-legend">User Registration - Confirm</legend>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Name</label>
+            <input
+              id="name"
+              class="uk-input"
+              type="hidden"
+              name="name"
+              th:field="*{name}"
+            />
+            <div th:text="${form.name}"></div>
+          </div>
+          <div class="uk-margin">
+            <input
+              type="submit"
+              value="Register"
+              class="uk-button uk-button-primary"
+            />
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </body>
 </html>

@@ -8,33 +8,35 @@
     <title>User Registration - Input</title>
   </head>
   <body>
-    <form
-      id="form"
-      class="uk-flex uk-flex-center uk-padding-large"
-      th:action="@{/user/register/confirm}"
-      th:object="${form}"
-      method="post"
-    >
-      <fieldset class="uk-fieldset">
-        <legend class="uk-legend">User Registration - Input</legend>
-        <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Name</label>
-          <input
-            id="name"
-            class="uk-input"
-            type="text"
-            placeholder="Name"
-            th:field="*{name}"
-          />
-        </div>
-        <div class="uk-margin">
-          <input
-            type="submit"
-            value="Confirm"
-            class="uk-button uk-button-primary"
-          />
-        </div>
-      </fieldset>
-    </form>
+    <div layout:fragment="content">
+      <form
+        id="form"
+        class="uk-flex uk-flex-center uk-padding-large"
+        th:action="@{/user/register/confirm}"
+        th:object="${form}"
+        method="post"
+      >
+        <fieldset class="uk-fieldset">
+          <legend class="uk-legend">User Registration - Input</legend>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Name</label>
+            <input
+              id="name"
+              class="uk-input"
+              type="text"
+              placeholder="Name"
+              th:field="*{name}"
+            />
+          </div>
+          <div class="uk-margin">
+            <input
+              type="submit"
+              value="Confirm"
+              class="uk-button uk-button-primary"
+            />
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </body>
 </html>

@@ -8,27 +8,29 @@
     <title>User Detail</title>
   </head>
   <body>
-    <div
-      id="header"
-      class="uk-flex uk-flex-center uk-flex-middle uk-margin-top"
-    >
-      <div class="uk-card">
-        <div class="uk-heading-small">User Detail</div>
+    <div layout:fragment="content">
+      <div
+        id="header"
+        class="uk-flex uk-flex-center uk-flex-middle uk-margin-top"
+      >
+        <div class="uk-card">
+          <div class="uk-heading-small">User Detail</div>
+        </div>
       </div>
-    </div>
-    <div id="body" class="uk-flex uk-flex-center uk-padding">
-      <div th:if="${user != null}">
-        <div th:text="${user.name}"></div>
+      <div id="body" class="uk-flex uk-flex-center uk-padding">
+        <div th:if="${user != null}">
+          <div th:text="${user.name}"></div>
+        </div>
+        <div th:if="${user == null}">
+          <div>User Not Found.</div>
+        </div>
       </div>
-      <div th:if="${user == null}">
-        <div>User Not Found.</div>
+      <div id="link" class="uk-flex uk-flex-center">
+        <a class="uk-link-muted" th:href="@{/users}">
+          <span uk-icon="forward"></span>
+          To User List Page
+        </a>
       </div>
-    </div>
-    <div id="link" class="uk-flex uk-flex-center">
-      <a class="uk-link-muted" th:href="@{/users}">
-        <span uk-icon="forward"></span>
-        To User List Page
-      </a>
     </div>
   </body>
 </html>

@@ -8,14 +8,16 @@
     <title>User Registration - Complete</title>
   </head>
   <body>
-    <div id="body" class="uk-flex uk-flex-center uk-padding-large">
-      <h3>Registered!</h3>
-    </div>
-    <div id="link" class="uk-flex uk-flex-center">
-      <a class="uk-link-muted" th:href="@{/users}">
-        <span uk-icon="forward"></span>
-        To User List Page
-      </a>
+    <div layout:fragment="content">
+      <div id="body" class="uk-flex uk-flex-center uk-padding-large">
+        <h3>Registered!</h3>
+      </div>
+      <div id="link" class="uk-flex uk-flex-center">
+        <a class="uk-link-muted" th:href="@{/users}">
+          <span uk-icon="forward"></span>
+          To User List Page
+        </a>
+      </div>
     </div>
   </body>
 </html>
