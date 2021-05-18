@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head> 
+    <title>Layout</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/uikit/3.6.19/css/uikit.min.css}">
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit.min.js}"></script>
+    <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
+  </head>
+  <body>
+    <div layout:fragment="content" th:remove="tag"></div>
+  </body>
+</html>

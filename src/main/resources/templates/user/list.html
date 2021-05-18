@@ -1,51 +1,64 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>User List</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" th:href="@{/webjars/uikit/3.6.19/css/uikit.min.css}">
-    <script th:src="@{/webjars/uikit/3.6.19/js/uikit.min.js}"></script>
-    <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{common/layout}"
+>
+  <head>
+    <title>User List</title>
   </head>
-<body>
-  <div id="header" class="uk-flex uk-flex-center uk-margin-top">
-    <div class="uk-card">
-      <div class="uk-heading-small">User List</div>
-    </div>
-  </div>
-  <div id="add_button" class="uk-flex uk-flex-right uk-margin-large-right">
-    <a class="uk-button uk-button-primary uk-margin-left" th:href="@{/user/register/input}">
-      <span uk-icon="plus-circle"></span>
-      Add User
-    </a> 
-  </div>
-  <div id="body" class="uk-flex uk-flex-center uk-padding">
-    <table class="uk-table uk-table-striped">
-      <caption>User List</caption>
-      <thead>
-          <tr>
+  <body>
+    <div layout:fragment="content">
+      <div id="header" class="uk-flex uk-flex-center uk-margin-top">
+        <div class="uk-card">
+          <div class="uk-heading-small">User List</div>
+        </div>
+      </div>
+      <div id="add_button" class="uk-flex uk-flex-right uk-margin-large-right">
+        <a
+          class="uk-button uk-button-primary uk-margin-left"
+          th:href="@{/user/register/input}"
+        >
+          <span uk-icon="plus-circle"></span>
+          Add User
+        </a>
+      </div>
+      <div id="body" class="uk-flex uk-flex-center uk-padding">
+        <table class="uk-table uk-table-striped">
+          <caption>
+            User List
+          </caption>
+          <thead>
+            <tr>
               <th>Id</th>
               <th>Name</th>
               <th>Action</th>
-          </tr>
-      </thead>
-      <tbody>
-        <th:block th:each="user : ${userList}">
-          <tr>
-            <td>
-              <a th:text="${user.id}" th:href="@{/user/{id}(id=${user.id})}"></a>
-            </td>
-            <td th:text="${user.name}"></td>
-            <td>
-              <a class="uk-link-muted" th:href="@{/user/{id}/update/input(id=${user.id})}">
-                <span uk-icon="pencil" class="uk-margin-small-right"></span>
-              </a>
-              <span uk-icon="trash" class="uk-margin-small-right"></span>
-            </td>
-          </tr>
-        </th:block>  
-      </tbody>
-    </table>
-  </div>
-</body>
+            </tr>
+          </thead>
+          <tbody>
+            <th:block th:each="user : ${userList}">
+              <tr>
+                <td>
+                  <a
+                    th:text="${user.id}"
+                    th:href="@{/user/{id}(id=${user.id})}"
+                  ></a>
+                </td>
+                <td th:text="${user.name}"></td>
+                <td>
+                  <a
+                    class="uk-link-muted"
+                    th:href="@{/user/{id}/update/input(id=${user.id})}"
+                  >
+                    <span uk-icon="pencil" class="uk-margin-small-right"></span>
+                  </a>
+                  <span uk-icon="trash" class="uk-margin-small-right"></span>
+                </td>
+              </tr>
+            </th:block>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>

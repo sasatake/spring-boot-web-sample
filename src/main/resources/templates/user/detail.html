@@ -1,31 +1,34 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>User Detail</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" th:href="@{/webjars/uikit/3.6.19/css/uikit.min.css}">
-    <script th:src="@{/webjars/uikit/3.6.19/js/uikit.min.js}"></script>
-    <script th:src="@{/webjars/uikit/3.6.19/js/uikit-icons.min.js}"></script>
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{common/layout}"
+>
+  <head>
+    <title>User Detail</title>
   </head>
-<body>
-  <div id="header" class="uk-flex uk-flex-center uk-flex-middle uk-margin-top">
-    <div class="uk-card">
-      <div class="uk-heading-small">User Detail</div>
+  <body>
+    <div
+      id="header"
+      class="uk-flex uk-flex-center uk-flex-middle uk-margin-top"
+    >
+      <div class="uk-card">
+        <div class="uk-heading-small">User Detail</div>
+      </div>
     </div>
-  </div>
-  <div id="body" class="uk-flex uk-flex-center uk-padding">
-    <div th:if="${user != null}">
-      <div th:text="${user.name}"></div>
+    <div id="body" class="uk-flex uk-flex-center uk-padding">
+      <div th:if="${user != null}">
+        <div th:text="${user.name}"></div>
+      </div>
+      <div th:if="${user == null}">
+        <div>User Not Found.</div>
+      </div>
     </div>
-    <div th:if="${user == null}">
-      <div>User Not Found.</div>
-    </div>
-  </div>
-  <div id="link" class="uk-flex uk-flex-center">
-    <a class="uk-link-muted" th:href="@{/users}">
+    <div id="link" class="uk-flex uk-flex-center">
+      <a class="uk-link-muted" th:href="@{/users}">
         <span uk-icon="forward"></span>
         To User List Page
-    </a>
-  </div>
-</body>
+      </a>
+    </div>
+  </body>
 </html>
